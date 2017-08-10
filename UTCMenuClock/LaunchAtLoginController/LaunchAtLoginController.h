@@ -26,9 +26,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface LaunchAtLoginController : NSObject {
-
-}
+@interface LaunchAtLoginController : NSObject
 
 @property BOOL launchAtLogin;
 

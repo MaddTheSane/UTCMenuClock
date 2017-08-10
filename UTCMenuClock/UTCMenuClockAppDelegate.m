@@ -53,8 +53,6 @@ NSMenuItem *show24HrTimeItem;
         [sender setState:NSOffState];
         [launchController setLaunchAtLogin:NO];
     }
-
-    [launchController release];
 }
 
 - (BOOL) fetchBooleanPreference:(NSString *)preference {
@@ -87,10 +85,10 @@ NSMenuItem *show24HrTimeItem;
 - (void) doDateUpdate {
 
     NSDate* date = [NSDate date];
-    NSDateFormatter* UTCdf = [[[NSDateFormatter alloc] init] autorelease];
-    NSDateFormatter* UTCdateDF = [[[NSDateFormatter alloc] init] autorelease];
-    NSDateFormatter* UTCdateShortDF = [[[NSDateFormatter alloc] init] autorelease];
-    NSDateFormatter* UTCdaynum = [[[NSDateFormatter alloc] init] autorelease];
+    NSDateFormatter* UTCdf = [[NSDateFormatter alloc] init];
+    NSDateFormatter* UTCdateDF = [[NSDateFormatter alloc] init];
+    NSDateFormatter* UTCdateShortDF = [[NSDateFormatter alloc] init];
+    NSDateFormatter* UTCdaynum = [[NSDateFormatter alloc] init];
     
     NSTimeZone* UTCtz = [NSTimeZone timeZoneWithAbbreviation:@"UTC"];
 
@@ -189,7 +187,6 @@ NSMenuItem *show24HrTimeItem;
     NSStatusBar *bar = [NSStatusBar systemStatusBar];
     NSStatusItem *theItem;
     theItem = [bar statusItemWithLength:NSVariableStatusItemLength];
-    [theItem retain];
     // retain a reference to the item so we don't have to find it again
     ourStatus = theItem;
 
@@ -205,18 +202,18 @@ NSMenuItem *show24HrTimeItem;
     NSMenuItem *mainItem = [[NSMenuItem alloc] init];
     dateMenuItem = mainItem;
 
-    NSMenuItem *cp1Item = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *cp2Item = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *cp3Item = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *quitItem = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *launchItem = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *showDateItem = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *show24Item = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *showSecondsItem = [[[NSMenuItem alloc] init] autorelease];
-    NSMenuItem *showJulianItem = [[[NSMenuItem alloc] init] autorelease];
+    NSMenuItem *cp1Item = [[NSMenuItem alloc] init];
+    NSMenuItem *cp2Item = [[NSMenuItem alloc] init];
+    NSMenuItem *cp3Item = [[NSMenuItem alloc] init];
+    NSMenuItem *quitItem = [[NSMenuItem alloc] init];
+    NSMenuItem *launchItem = [[NSMenuItem alloc] init];
+    NSMenuItem *showDateItem = [[NSMenuItem alloc] init];
+    NSMenuItem *show24Item = [[NSMenuItem alloc] init];
+    NSMenuItem *showSecondsItem = [[NSMenuItem alloc] init];
+    NSMenuItem *showJulianItem = [[NSMenuItem alloc] init];
  //   NSMenuItem *changeFontItem = [[[NSMenuItem alloc] init] autorelease];
     
-    showTimeZoneItem = [[[NSMenuItem alloc] init] autorelease];
+    showTimeZoneItem = [[NSMenuItem alloc] init];
     NSMenuItem *sep1Item = [NSMenuItem separatorItem];
     NSMenuItem *sep2Item = [NSMenuItem separatorItem];
     NSMenuItem *sep3Item = [NSMenuItem separatorItem];
@@ -321,7 +318,6 @@ NSMenuItem *show24HrTimeItem;
     // latsly, deal with Launch at Login
     LaunchAtLoginController *launchController = [[LaunchAtLoginController alloc] init];
     BOOL launch = [launchController launchAtLogin];
-    [launchController release];
 
     if (launch) {
         [launchItem setState:NSOnState];
@@ -345,7 +341,7 @@ NSMenuItem *show24HrTimeItem;
     // Update the date immediately after setup so that there is no timer lag
     [self doDateUpdate];
 
-    NSNumber *myInt = [NSNumber numberWithInt:1];
+    NSNumber *myInt = @1;
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(fireTimer:) userInfo:myInt repeats:YES];
 
 

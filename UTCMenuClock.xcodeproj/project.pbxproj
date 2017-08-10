@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5515B5DD1F3C364B00220591 /* UTCMenuClockAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5515B5DC1F3C364B00220591 /* UTCMenuClockAppDelegate.swift */; };
 		A8B1188B1471AE3A008A993B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B1188A1471AE3A008A993B /* Cocoa.framework */; };
 		A8B118951471AE3A008A993B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8B118931471AE3A008A993B /* InfoPlist.strings */; };
 		A8B118971471AE3A008A993B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B118961471AE3A008A993B /* main.m */; };
@@ -17,7 +18,7 @@
 		A8B118AA1471AE3A008A993B /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B1188A1471AE3A008A993B /* Cocoa.framework */; };
 		A8B118B21471AE3A008A993B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A8B118B01471AE3A008A993B /* InfoPlist.strings */; };
 		A8B118B41471AE3A008A993B /* UTCMenuClockTests.h in Resources */ = {isa = PBXBuildFile; fileRef = A8B118B31471AE3A008A993B /* UTCMenuClockTests.h */; };
-		A8B118B61471AE3A008A993B /* UTCMenuClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B118B51471AE3A008A993B /* UTCMenuClockTests.m */; };
+		A8B118B61471AE3A008A993B /* UTCMenuClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B118B51471AE3A008A993B /* UTCMenuClockTests.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		A8B119261471EB13008A993B /* LaunchAtLoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = A8B119011471EB13008A993B /* LaunchAtLoginController.m */; };
 		A8B119271471EB13008A993B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A8B119021471EB13008A993B /* README.md */; };
 		DA1B0A0B1822FCFF00C57253 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1B0A0A1822FCFF00C57253 /* Images.xcassets */; };
@@ -34,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5515B5DB1F3C364B00220591 /* UTCMenuClock-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UTCMenuClock-Bridging-Header.h"; sourceTree = "<group>"; };
+		5515B5DC1F3C364B00220591 /* UTCMenuClockAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UTCMenuClockAppDelegate.swift; sourceTree = "<group>"; };
 		A8B118861471AE3A008A993B /* UTCMenuClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UTCMenuClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B1188A1471AE3A008A993B /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		A8B1188D1471AE3A008A993B /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -89,6 +92,7 @@
 				A8B118871471AE3A008A993B /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		A8B118871471AE3A008A993B /* Products */ = {
 			isa = PBXGroup;
@@ -124,6 +128,7 @@
 			children = (
 				A8B1189C1471AE3A008A993B /* UTCMenuClockAppDelegate.h */,
 				A8B1189D1471AE3A008A993B /* UTCMenuClockAppDelegate.m */,
+				5515B5DC1F3C364B00220591 /* UTCMenuClockAppDelegate.swift */,
 				A8B118BF1471EB12008A993B /* LaunchAtLoginController */,
 				A8B1189F1471AE3A008A993B /* MainMenu.xib */,
 				DA1B0A0A1822FCFF00C57253 /* Images.xcassets */,
@@ -138,6 +143,7 @@
 				A8B118921471AE3A008A993B /* UTCMenuClock-Info.plist */,
 				A8B118931471AE3A008A993B /* InfoPlist.strings */,
 				A8B118961471AE3A008A993B /* main.m */,
+				5515B5DB1F3C364B00220591 /* UTCMenuClock-Bridging-Header.h */,
 				A8B118981471AE3A008A993B /* UTCMenuClock-Prefix.pch */,
 				A8B118991471AE3A008A993B /* Credits.rtf */,
 			);
@@ -219,11 +225,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastTestingUpgradeCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					A8B118851471AE3A008A993B = {
-						DevelopmentTeam = 9H4CZQM7ZP;
+						DevelopmentTeam = AZAE6TWF2Z;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -292,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8B118971471AE3A008A993B /* main.m in Sources */,
+				5515B5DD1F3C364B00220591 /* UTCMenuClockAppDelegate.swift in Sources */,
 				A8B1189E1471AE3A008A993B /* UTCMenuClockAppDelegate.m in Sources */,
 				A8B119261471EB13008A993B /* LaunchAtLoginController.m in Sources */,
 			);
@@ -355,12 +363,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -395,12 +409,18 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -420,6 +440,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};
@@ -427,14 +448,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9H4CZQM7ZP;
+				DEVELOPMENT_TEAM = AZAE6TWF2Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UTCMenuClock/UTCMenuClock-Prefix.pch";
 				INFOPLIST_FILE = "UTCMenuClock/UTCMenuClock-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.retina.UTCMenuClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UTCMenuClock/UTCMenuClock-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -443,14 +470,19 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 9H4CZQM7ZP;
+				DEVELOPMENT_TEAM = AZAE6TWF2Z;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UTCMenuClock/UTCMenuClock-Prefix.pch";
 				INFOPLIST_FILE = "UTCMenuClock/UTCMenuClock-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.retina.UTCMenuClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "UTCMenuClock/UTCMenuClock-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -459,6 +491,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UTCMenuClock.app/Contents/MacOS/UTCMenuClock";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -475,6 +508,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/UTCMenuClock.app/Contents/MacOS/UTCMenuClock";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

@@ -21,12 +21,12 @@
 #import <Cocoa/Cocoa.h>
 
 @interface UTCMenuClockAppDelegate : NSObject <NSApplicationDelegate> {
-    NSWindow *window;
+    __unsafe_unretained NSWindow *window;
     NSMenu *mainMenu;
-    NSStatusItem *statusItem;
+    __strong NSStatusItem *statusItem;
 }
 
 @property (assign) IBOutlet NSWindow *window;
-@property (assign) IBOutlet NSMenu *mainMenu;
+@property (strong) IBOutlet NSMenu *mainMenu;
 
 @end
