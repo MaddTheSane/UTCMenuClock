@@ -37,11 +37,6 @@ NSMenuItem *dateMenuItem;
 NSMenuItem *showTimeZoneItem;
 NSMenuItem *show24HrTimeItem;
 
-- (void) quitProgram:(id)sender {
-    // Cleanup here if necessary...
-    [[NSApplication sharedApplication] terminate:nil];
-}
-
 - (void) toggleLaunch:(id)sender {
     NSInteger state = [sender state];
     LaunchAtLoginController *launchController = [[LaunchAtLoginController alloc] init];
@@ -269,7 +264,8 @@ NSMenuItem *show24HrTimeItem;
     
     [quitItem setTitle:@"Quit"];
     [quitItem setEnabled:TRUE];
-    [quitItem setAction:@selector(quitProgram:)];
+    [quitItem setAction:@selector(terminate:)];
+    [quitItem setTarget:NSApp];
 
     [mainMenu addItem:mainItem];
     // "---"
