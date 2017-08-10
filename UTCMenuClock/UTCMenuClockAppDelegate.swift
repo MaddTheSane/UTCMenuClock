@@ -29,12 +29,6 @@ var show24HourPreferenceKey: String {
 	return "24HRTime"
 }
 
-private let tagsToKeys: [Int: String] = [1: show24HourPreferenceKey,
-                                         2: showDatePreferenceKey,
-                                         3: showSecondsPreferenceKey,
-                                         4: showJulianDatePreferenceKey,
-                                         5: showTimeZonePreferenceKey]
-
 class UTCMenuClockAppDelegateSwift: NSObject, NSApplicationDelegate {
 	@IBOutlet weak var window: NSWindow!
 	@IBOutlet var mainMenu: NSMenu!
@@ -57,24 +51,18 @@ class UTCMenuClockAppDelegateSwift: NSObject, NSApplicationDelegate {
 	}
 	
 	@objc func togglePreference(_ sender: NSMenuItem?) {
-		/*
-		- (void) togglePreference:(id)sender {
-		NSInteger state = [sender state];
-		NSString *preference = [sender title];
-		NSUserDefaults *standardUserDefaults = [NSUserDefaults standardUserDefaults];
-		
-		preference = [preference stringByReplacingOccurrencesOfString:@" "
-		withString:@""];
-		if (state == NSOffState) {
-		[sender setState:NSOnState];
-		[standardUserDefaults setBool:TRUE forKey:preference];
-		} else {
-		[sender setState:NSOffState];
-		[standardUserDefaults setBool:FALSE forKey:preference];
-		}
-		
-		}
-		*/
+        guard let sender = sender, let preference = sender.representedObject as? String else {
+            return
+        }
+        let state = sender.state
+        
+        if state == NSOffState {
+            sender.state = NSOnState
+            UserDefaults.standard.set(true, forKey: preference)
+        } else {
+            sender.state = NSOffState
+            UserDefaults.standard.set(false, forKey: preference)
+        }
 	}
 
 	@objc func openGithubURL(_ sender: Any?) {
@@ -152,22 +140,26 @@ class UTCMenuClockAppDelegateSwift: NSObject, NSApplicationDelegate {
 		doDateUpdate()
 	}
 	
+    override init() {
+        super.init()
+        let standardUserDefaults = UserDefaults.standard
+        let appDefaults: [String: Any] = [showTimeZonePreferenceKey: true,
+                                          show24HourPreferenceKey: true,
+                                          showDatePreferenceKey: false,
+                                          showJulianDatePreferenceKey: false,
+                                          showSecondsPreferenceKey: false]
+        standardUserDefaults.register(defaults: appDefaults)
+    }
+    
 	func applicationDidFinishLaunching(_ notification: Notification) {
-		let standardUserDefaults = UserDefaults.standard
-		let appDefaults: [String: Any] = [showTimeZonePreferenceKey: true,
-		                                  show24HourPreferenceKey: true,
-		                                  "dateKey": Date(),
-		                                  showDatePreferenceKey: false,
-		                                  showJulianDatePreferenceKey: false,
-		                                  showTimeZonePreferenceKey: false]
-		standardUserDefaults.register(defaults: appDefaults)
-		
 		doDateUpdate()
 	}
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
 		
+        mainMenu = NSMenu()
+
 		//Create Image for menu item
 		let bar = NSStatusBar.system()
 		let theItem = bar.statusItem(withLength: NSVariableStatusItemLength)
@@ -216,22 +208,22 @@ class UTCMenuClockAppDelegateSwift: NSObject, NSApplicationDelegate {
 		show24Item.title = "24 HR Time"
 		show24Item.isEnabled = true
 		show24Item.action = #selector(UTCMenuClockAppDelegateSwift.togglePreference(_:))
-		show24Item.tag = 1
+		show24Item.representedObject = show24HourPreferenceKey
 		
 		showDateItem.title = "Show Date"
 		showDateItem.isEnabled = true
 		showDateItem.action = #selector(UTCMenuClockAppDelegateSwift.togglePreference(_:))
-		showDateItem.tag = 2
+		showDateItem.representedObject = showDatePreferenceKey
 		
 		showSecondsItem.title = "Show Seconds"
 		showSecondsItem.isEnabled = true
 		showSecondsItem.action = #selector(UTCMenuClockAppDelegateSwift.togglePreference(_:))
-		showSecondsItem.tag = 3
+		showSecondsItem.representedObject = showSecondsPreferenceKey
 		
 		showJulianItem.title = "Show Julian Date"
 		showJulianItem.isEnabled = true
 		showJulianItem.action = #selector(UTCMenuClockAppDelegateSwift.togglePreference(_:))
-		showJulianItem.tag = 4
+		showJulianItem.representedObject = showJulianDatePreferenceKey
 		
 		showTimeZoneItem?.title = "Show Time Zone"
 		showTimeZoneItem?.isEnabled = true
